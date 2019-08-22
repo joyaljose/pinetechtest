@@ -1,6 +1,8 @@
 <?php 
 	session_start(); 
-	include 'user-class.php';
+	spl_autoload_register(function ($class_name) {
+	    include $class_name . '.php';
+	});
 	if (isset($_REQUEST['login'])) {
 		$user = new User();
 		extract($_REQUEST);
@@ -9,9 +11,7 @@
 			header("location: welcome.php");
 			exit();
 		} else { 
-			$_SESSION['msg'] = '<div class="alert alert-danger alert-dismissable">
-			<strong>Unable to login</strong>! Wrong email or password.
-			</div>';
+			$_SESSION['msg'] = 3;
 			header("location: index.php");
 			exit();
 		}

@@ -6,6 +6,7 @@
 	<head>
 		<title>Login</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<?php include 'header.php';?>
 	</head>
 	<body>
 		<div class="container">
@@ -17,7 +18,7 @@
 			<form action="login.php" method="post" name="login">
 			<div class="form-group">
 			<label>Email:</label>
-			<input class="form-control" type="text" autocomplete="off" name="email" required="" />
+			<input class="form-control" type="email" autocomplete="off" name="email" required="" />
 			</div>
 			<div class="form-group">
 			<label>Password:</label>
@@ -29,13 +30,19 @@
 		<br>
 		<?php 
 			if(isset($_SESSION['msg'])) {
-				echo $_SESSION['msg'];
+				$msg = $_SESSION['msg'];
 				$_SESSION['msg'] = '';
 			}
+			if($msg == 3){?>
+				<div class="alert alert-danger alert-dismissable">
+					<strong>Unable to login</strong>! Wrong email or password.
+				</div>
+			<?php }
 		?>
 		</div>
 		<div class="col-sm-4"></div>
 		</div>
 		</div>
 	</body>
+	<?php include 'footer.php';?>
 </html>

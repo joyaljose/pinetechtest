@@ -4,6 +4,7 @@
 	<head>
 		<title>Registration</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<?php include 'header.php';?>
 	</head>
 	<body>
 		<div class="container">
@@ -49,4 +50,5 @@
 			</div>
 		</div>
 	</body>
+	<?php include 'footer.php';?>
 </html>
